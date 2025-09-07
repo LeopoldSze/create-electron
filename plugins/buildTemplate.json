@@ -1,0 +1,101 @@
+{
+  "build": {
+    "appId": "com.yourcompany.yourapp",
+    "productName": "YourApp",
+    "directories": {
+      "app": "dist",
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      " /*"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "resources/ ",
+      " /*.node"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/",
+        "to": "resources",
+        "filter": [
+          " /*"
+        ]
+      }
+    ],
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "protocols": [
+      {
+        "name": "YourApp Protocol",
+        "schemes": [
+          "yourapp"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "YourApp",
+      "allowElevation": true,
+      "deleteAppDataOnUninstall": false,
+      "displayLanguageSelector": false,
+      "license": "build/license.txt",
+      "installerHeaderIcon": "build/installerHeaderIcon.ico",
+      "installerIcon": "build/installerIcon.ico",
+      "installerSidebar": "build/installerSidebar.bmp",
+      "include": "build/installer.nsh"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg"
+      ],
+      "icon": "build/icon.icns",
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.plist",
+      "entitlementsInherit": "build/entitlements.plist",
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "background": "build/dmg-background.tiff",
+      "icon": "build/icon.icns",
+      "iconSize": 128,
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility",
+      "icon": "build/icons"
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": " https://updates.yourdomain.com/yourapp/ "
+      }
+    ]
+  }
+}
