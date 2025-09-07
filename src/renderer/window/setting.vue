@@ -7,34 +7,54 @@ defineOptions({
 </script>
 
 <template>
-  <BarTop title="设置" />
   <div class="setting">
-    <div class="setting__menu">
-      <div class="setting__menu__item">账号设置</div>
-      <div class="setting__menu__item">消息通知</div>
-      <div class="setting__menu__item">通用设置</div>
-      <div class="setting__menu__item">文件管理</div>
-      <div class="setting__menu__item">快捷键</div>
-      <div class="setting__menu__item">关于</div>
+    <BarTop title="设置" />
+    <div class="setting__wrap">
+      <div class="setting__menu">
+        <div class="setting__menu-item">账号设置</div>
+        <div class="setting__menu-item">消息通知</div>
+        <div class="setting__menu-item">通用设置</div>
+        <div class="setting__menu-item">文件管理</div>
+        <div class="setting__menu-item">快捷键</div>
+        <div class="setting__menu-item">关于</div>
+      </div>
+      <div class="setting__content">
+        <router-view />
+      </div>
     </div>
-    <router-view />
   </div>
 </template>
 
 <style scoped lang="scss">
 .setting {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  padding-top: 50px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__wrap {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+  }
 
   &__menu {
-    border-right: 1px solid #e3e3e3;
+    background-color: var(--color-panel);
 
-    &__item {
-      height: 32px;
-      line-height: 32px;
+    &-item {
+      height: 40px;
+      line-height: 40px;
       text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-border);
+      }
     }
+  }
+
+  &__content {
+    padding: 16px;
   }
 }
 </style>

@@ -33,7 +33,7 @@ onMounted(() => {
   grid-template-columns: 54px 1fr;
 }
 .content__wrap {
-  border-top: 1px solid #e6e6e6;
+  border-top: 1px solid var(--color-border);
   margin-top: -1px;
 }
 </style>

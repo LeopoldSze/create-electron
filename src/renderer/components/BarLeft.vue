@@ -66,13 +66,13 @@ window.addEventListener('message', (e) => {
         v-for="item in mainWindowRoutes"
         :key="item.path"
         :to="item.path"
-        :class="['bar__menu__item', { selected: item.isSelected }]"
+        :class="['bar__menu-item', { 'bar__menu-item--selected': item.isSelected }]"
       >
         <i :class="['icon', item.isSelected ? item.iconSelected : item.icon]"></i>
       </router-link>
     </div>
-    <div class="bar__menu bar__setting">
-      <div class="bar__menu__item" @click="openSettingWindow">
+    <div class="bar__menu bar__menu--setting">
+      <div class="bar__menu-item" @click="openSettingWindow">
         <i class="icon icon-setting"></i>
       </div>
     </div>
@@ -85,7 +85,7 @@ window.addEventListener('message', (e) => {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #2e2e2e;
+  background-color: var(--color-bg-elevated);
   -webkit-app-region: drag;
 
   &__icon {
@@ -96,7 +96,7 @@ window.addEventListener('message', (e) => {
     img {
       width: 34px;
       height: 34px;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       margin-left: 10px;
     }
   }
@@ -106,24 +106,24 @@ window.addEventListener('message', (e) => {
     display: flex;
     flex-direction: column;
 
-    &__item {
+    &-item {
       height: 44px;
       line-height: 44px;
       text-align: center;
       padding: 0 12px;
-      color: #7e7e7e;
+      color: var(--color-text-secondary);
       cursor: pointer;
       -webkit-app-region: no-drag;
 
       &:hover {
-        color: #ccc;
+        color: var(--color-hover);
       }
 
-      &.selected {
-        color: #07c160;
+      &--selected {
+        color: var(--color-active);
 
         &:hover {
-          color: #07c160;
+          color: var(--color-active);
         }
       }
 
@@ -131,11 +131,11 @@ window.addEventListener('message', (e) => {
         font-size: 22px;
       }
     }
-  }
 
-  &__setting {
-    margin-bottom: 5px;
-    flex-grow: 0;
+    &--setting {
+      margin-bottom: 5px;
+      flex-grow: 0;
+    }
   }
 }
 </style>

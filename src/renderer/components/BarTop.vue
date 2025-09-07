@@ -62,19 +62,19 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="top-bar">
-    <div class="title">{{ title }}</div>
-    <div class="tools">
-      <div @click="minimizeMainWindow">
+  <div class="bar-top">
+    <div class="bar-top__title">{{ title }}</div>
+    <div class="bar-top__tools">
+      <div class="bar-top__tools-item" @click="minimizeMainWindow">
         <i class="icon icon-minimize" />
       </div>
-      <div v-if="isMaximized" @click="unmaximizeMainWindow">
+      <div v-if="isMaximized" class="bar-top__tools-item" @click="unmaximizeMainWindow">
         <i class="icon icon-restore" />
       </div>
-      <div v-else @click="maximizeMainWin">
+      <div v-else class="bar-top__tools-item" @click="maximizeMainWin">
         <i class="icon icon-maximize" />
       </div>
-      <div @click="closeWindow">
+      <div class="bar-top__tools-item bar-top__tools-item--danger" @click="closeWindow">
         <i class="icon icon-close" />
       </div>
     </div>
@@ -82,50 +82,50 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
-.top-bar {
+.bar-top {
   width: 100%;
   height: 45px;
   display: flex;
   align-items: center;
   -webkit-app-region: drag;
 
-  .title {
+  &__title {
     flex: 1;
     padding-left: 12px;
     font-size: 16px;
-    color: #555;
+    color: var(--color-text-title);
     font-weight: bold;
   }
 
-  .tools {
+  &__tools {
     display: flex;
     -webkit-app-region: no-drag;
 
-    div {
+    &-item {
       width: 34px;
       height: 45px;
       line-height: 45px;
       text-align: center;
-      color: #999;
+      color: var(--color-text-muted);
       cursor: pointer;
 
       &:hover {
-        background: #efefef;
+        background: var(--color-border);
       }
 
-      &:last-child:hover {
-        background: #ff7875;
+      &--danger:hover {
+        background: var(--color-danger);
 
         i {
           color: #fff !important;
         }
       }
-    }
 
-    .icon {
-      font-size: 12px;
-      color: #999;
-      font-weight: bold;
+      .icon {
+        font-size: 12px;
+        color: var(--color-text-muted);
+        font-weight: bold;
+      }
     }
   }
 }
