@@ -7,15 +7,16 @@
 <style>
 :root {
   /* 中性色 */
-  --color-bg-elevated: #2e2e2e;
+  --color-bg-elevated: #2a2a2a;
   --color-text-secondary: #7e7e7e;
-  --color-text-muted: #999999;
-  --color-text-title: #555555;
-  --color-border: #efefef;
-  --color-hover: #cccccc;
+  --color-text-muted: #9a9a9a;
+  --color-text-title: #3a3a3a;
+  --color-border: #eaeaea;
+  --color-hover: #eaeaea;
   --color-danger: #ff7875;
-  --color-active: #07c160;
-  --color-panel: #f6f6f6;
+  --color-active: #07c160; /* 微信绿色 */
+  --color-panel: #f7f7f7;
+  --color-message: #95EC69; /* 右侧消息泡 */
 
   /* 间距与尺寸 */
   --space-xxs: 4px;

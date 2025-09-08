@@ -1,6 +1,6 @@
 import { app, BrowserWindow, ipcMain } from 'electron'
-import { windowConfig } from '../model/windowConfig'
-import type { AppWindowOptions } from '../types/window'
+import { windowConfig } from '@/model'
+import type { AppWindowOptions } from '@/types/window'
 
 export default class CommonWindowEvent {
   private static getWin(event: any) {
@@ -35,7 +35,7 @@ export default class CommonWindowEvent {
       return this.getWin(e)?.isResizable()
     })
 
-    ipcMain.handle('getPath', (e, name: any) => {
+    ipcMain.handle('getPath', (_e, name: any) => {
       return app.getPath(name)
     })
   }

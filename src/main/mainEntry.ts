@@ -1,10 +1,10 @@
 import { app, BrowserWindow } from 'electron'
 import { CustomScheme } from './CustomScheme'
 import CommonWindowEvent from './CommonWindowEvent'
-import { windowConfig } from '../model/windowConfig'
+import { windowConfig } from '@/model'
 
 // 禁用安全警告
-process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'false';
+process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'false'
 
 app.on('browser-window-created', (e, win) => {
   CommonWindowEvent.regWinEvent(win)
