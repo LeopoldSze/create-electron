@@ -1,0 +1,7 @@
+packages:
+  - .
+
+# 允许依赖的构建/安装脚本运行（pnpm v10 默认阻止）
+onlyBuiltDependencies:
+  - electron
+  - esbuild

@@ -163,13 +163,15 @@ export const devPlugin = () => {
       server.httpServer?.once('listening', () => {
         const addressInfo = server.httpServer?.address() as AddressInfo
         let host = addressInfo.address
-        if (host === '::' || host === '0.0.0.0') {
+        // 统一到 localhost，避免 ::1 等 IPv6 地址在 Electron 中偶发导航中断
+        if (host === '::' || host === '::1' || host === '0.0.0.0') {
           host = 'localhost'
-        }
-        type Family = 'IPv4' | 'IPv6'
-        const family = (addressInfo as AddressInfo & { family?: Family }).family
-        if (family === 'IPv6' && !host.startsWith('[')) {
-          host = `[${host}]`
+        } else {
+          type Family = 'IPv4' | 'IPv6'
+          const family = (addressInfo as AddressInfo & { family?: Family }).family
+          if (family === 'IPv6' && !host.startsWith('[')) {
+            host = `[${host}]`
+          }
         }
         httpAddress = `http://${host}:${addressInfo.port}`
         startElectron()
